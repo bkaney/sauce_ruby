@@ -39,7 +39,8 @@ begin
               @selenium = ::Selenium::Client::Driver.new(:host => "127.0.0.1",
                                                          :port => 4444,
                                                          :browser => "*" + browser,
-                                                         :url => "http://127.0.0.1:#{config.local_application_port}/")
+                                                         :url => config.browser_url)
+#                                                         :url => "http://127.0.0.1:#{config.local_application_port}/")
             else
               @selenium = Sauce::Selenium.new({:os => os, :browser => browser, :browser_version => version,
                 :job_name => "#{description}"})
